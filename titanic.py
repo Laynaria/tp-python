@@ -80,3 +80,20 @@ print(f"Third class: {percent_saved_third_class} % survivor") # Third class: 25.
 
 # Part 3 Logic
 # for boat in boats_that_saved:
+existing_saving_boats = set(boats_that_saved)
+existing_saving_boats = list(existing_saving_boats)
+valueArray = []
+
+for boat in existing_saving_boats:
+    valueArray.append(0)
+
+dictionnary = dict(zip(existing_saving_boats, valueArray))
+
+for boat in boats_that_saved:
+    dictionnary[boat] +=1
+
+boats_that_saved_the_most = max(dictionnary, key=dictionnary.get)
+max_saved_number_from_a_boat = max(dictionnary.values())
+
+print(f"The boat that saved the most people is the {boats_that_saved_the_most}. It saved {max_saved_number_from_a_boat} people.")
+# The boat that saved the most people is the 13. It saved 39 people.
