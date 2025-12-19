@@ -4,7 +4,7 @@ from movie import Movie
 def movie_cli(movie_manager_to_use : MovieManager):
     print("\nMenu")
     print("1. Create a film")
-    print("2. Show all films")
+    print("2. Show films")
     print("3. Update a film")
     print("4. Delete a film")
     print("5. Quit")
@@ -23,13 +23,22 @@ def movie_cli(movie_manager_to_use : MovieManager):
             movie_manager_to_use.save_to_json()
         
         case "2":
-            print("\nAll Movies:")
-            movie_manager_to_use.get_all_movies()
+            print("\nSubmenu for Movies")
+            print("1. Show all Movies")
+            print("2. Find a Movie By Title")
+            print("3. Return to Main Menu")
+            sub_choice = input("\nWhat do you want to do ? ")
 
-# Proposer un sous-menu :
-# Afficher tous les films (triés par date)
-# Rechercher un film par titre
-# Retour au menu principal
+            if sub_choice == "1":
+                print("\nAll Movies:")
+                movie_manager_to_use.get_all_movies()
+            
+            if sub_choice == "2":
+                movie_to_search = input("Enter the title of the Movie your want to search: ")
+                movie_manager_to_use.get_movie_by_title(movie_to_search)
+            
+            if sub_choice == "3":
+                return
         
         case "3":
             movie_to_update = input("Enter the title of the Movie you want to update: ")
