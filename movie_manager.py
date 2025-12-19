@@ -74,9 +74,6 @@ class MovieManager:
             else:
                 print(f"No movie with this title!")
 
-# new_manager = MovieManager()
-# new_manager.load_from_json()
-
 # print("All movies")
 # print(new_manager.get_all_movies())
 
