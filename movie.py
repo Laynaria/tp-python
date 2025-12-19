@@ -17,14 +17,23 @@ class Movie:
         return self._released_date
     
     @released_date.setter # string format DD/MM/YYYY
-    def released_date(self, new_released_date) -> None:
-        self._released_date = new_released_date
+    def released_date(self, new_released_date: str) -> None:
+        # Error case not totally well working, it doesn't return the error like it should and just break for now
+        try:
+            destructured_date = new_released_date.split("/")
+        
+            if len(destructured_date) == 3:
+                if destructured_date[0].isnumeric() and destructured_date[1].isnumeric() and destructured_date[2].isnumeric():
+                    self._released_date = new_released_date
+
+        except Exception:
+            print("erreur")
 
     def __str__(self):
-        return f"{self.title} released on {self.released_date} \n '{self.description}'"
+        return f"{self.title} released on {self.released_date} \n'{self.description}'"
 
-# La classe doit :
-# Valider que la date est au format DD/MM/YYYY
+test_movie = Movie("bla", "14/06/2020", "bla bla bla bla bla")
+print(test_movie)
 
 
 # Optionnellement :
