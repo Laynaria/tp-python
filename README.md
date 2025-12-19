@@ -1,9 +1,7 @@
-# Comment marche ce repo :
+# How to check result of this TP :
 
-## Exercice 1 : lancer titanic.py
+## Exercice 1 : launch titanic.py
 
-# Notes pour moi
+# Notes for myself
 
-## Exo 2 questions 4 et 5 (deux dernières) OPTIONNELLES donc faire en dernier
-
-### Code > Download Zip sur github pour moi
+### Code > Download Zip from Github

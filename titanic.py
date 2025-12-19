@@ -8,7 +8,7 @@ third_class = []
 
 boats_that_saved = []
 
-with open("titanic_survival.csv", "r") as csv_file:
+with open("Annexe/titanic_survival.csv", "r") as csv_file:
     csv_file_reader = csv.DictReader(csv_file)
 
 
