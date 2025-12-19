@@ -61,6 +61,16 @@ class MovieManager:
 
         for movie in self.movie_list:
             if movie.title.lower() == title.lower():
+                # If strings are empty, we keep original value
+                if new_title == "":
+                    new_movie.title = movie.title
+                
+                if new_released_date == "":
+                    new_movie.released_date = movie.released_date
+
+                if new_description == "":
+                    new_movie.description = movie.description
+
                 self.movie_list[self.movie_list.index(movie)] = new_movie
         else:
             print(f"No movie with this title!")

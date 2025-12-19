@@ -42,12 +42,26 @@ def movie_cli(movie_manager_to_use : MovieManager):
         
         case "3":
             movie_to_update = input("Enter the title of the Movie you want to update: ")
-            new_title = input("Enter New Title")
-            new_released_date = input("Enter New Released Date in dd/mm/yy format only: ")
-            new_description = input("Enter New Description: ")
+            edit_title = input("Do You want to edit Title? (Y/N) ")
+            new_title = ""
 
-#  Afficher un sous-menu pour choisir quoi modifier (titre / date / description)
+            if (edit_title == "Y"):
+                new_title= input("Enter New Title")
 
+            edit_released_date = input("Do you want to edit Released Date? (Y/N) ")
+            new_released_date = ""
+
+            if (edit_released_date == "Y"):
+                new_released_date = input("Enter New Released Date in dd/mm/yy format only: ")
+                
+
+            edit_description = input("Do you want to edit description? (Y/N)")
+            new_description = ""
+
+            if (edit_description == "Y"):
+                new_description = input("Enter New Description: ")
+            
+            print(new_title, new_released_date, new_description)
 
             movie_manager_to_use.update_movie_by_title(movie_to_update, new_title, new_released_date, new_description)
             movie_manager_to_use.save_to_json()
