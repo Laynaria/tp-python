@@ -1,5 +1,6 @@
 from movie import Movie
 import json
+from datetime import datetime
 
 class MovieManager:
     def __init__(self):
@@ -49,9 +50,17 @@ class MovieManager:
             else:
                 print(f"No movie with this title!")
 
-# get_movies_sorted_by_date : Retourner les films triés par date de sortie croissante
+# not working yet
+    def get_movies_sorted_by_date(self):
+        get_list = self.movie_list 
+
+        get_list.sort(key=lambda x: datetime.strptime(x.released_date, '%d/%m/%Y'))
+        return get_list
+    
 # update_movie_by_title : Modifier un ou plusieurs champs d'un film trouvé par titre
 
+
+    # def update_movie_by_title(self, title):
     def delete_movie_by_title(self, title):
             for movie in self.movie_list:
                 if movie.title.lower() == title.lower():
@@ -70,8 +79,12 @@ print(new_manager.get_all_movies())
 # new_manager.create_movie(test_movie)
 new_manager.save_to_json()
 
-print("Get movie bla")
-new_manager.get_movie_by_title("bla")
+# print("Get movie bla")
+# new_manager.get_movie_by_title("bla")
 
-new_manager.delete_movie_by_title("bla")
-print(new_manager.get_all_movies())
+# new_manager.delete_movie_by_title("bla")
+# print(new_manager.get_all_movies())
+
+print("Film list in order of released date")
+for movie in new_manager.get_movies_sorted_by_date():
+    print(movie, "\n")
