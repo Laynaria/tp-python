@@ -33,6 +33,7 @@ class MovieManager:
             json.dump(data, json_file, indent=4)
 
 
+    # CRUD
     def create_movie(self, new_movie):
         self.movie_list.append(new_movie)
     
@@ -40,23 +41,37 @@ class MovieManager:
         for movie in self.movie_list:
             print(movie)
 
-    # def get_movie_by_title(self) -> None
+    def get_movie_by_title(self, title) -> None:
+            for movie in self.movie_list:
+                if movie.title.lower() == title.lower():
+                    print(movie)
+                    break
+            else:
+                print(f"No movie with this title!")
 
-
-# Méthodes à implémenter :
-# b) CRUD
-
-# get_movie_by_title : Rechercher un film par titre (insensible à la casse)
 # get_movies_sorted_by_date : Retourner les films triés par date de sortie croissante
 # update_movie_by_title : Modifier un ou plusieurs champs d'un film trouvé par titre
-# delete_movie_by_title : Supprimer un film par titre
+
+    def delete_movie_by_title(self, title):
+            for movie in self.movie_list:
+                if movie.title.lower() == title.lower():
+                    self.movie_list.remove(movie)
+                    break
+            else:
+                print(f"No movie with this title!")
 
 new_manager = MovieManager()
 new_manager.load_from_json()
 
+print("All movies")
 print(new_manager.get_all_movies())
 
-test_movie = Movie("bla", "14/06/2020", "bla bla bla bla bla")
-
-new_manager.create_movie(test_movie)
+# test_movie = Movie("bla", "14/06/2020", "bla bla bla bla bla")
+# new_manager.create_movie(test_movie)
 new_manager.save_to_json()
+
+print("Get movie bla")
+new_manager.get_movie_by_title("bla")
+
+new_manager.delete_movie_by_title("bla")
+print(new_manager.get_all_movies())
