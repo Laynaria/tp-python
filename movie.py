@@ -32,10 +32,6 @@ class Movie:
     def __str__(self):
         return f"{self.title} released on {self.released_date} \n'{self.description}'"
 
-test_movie = Movie("bla", "14/06/2020", "bla bla bla bla bla")
-print(test_movie)
-
-
 # Optionnellement :
 # Avoir une méthode to_dict() pour convertir le film en dictionnaire (pour JSON)
 # Avoir une méthode from_dict(data) pour créer un film depuis un dictionnaire
